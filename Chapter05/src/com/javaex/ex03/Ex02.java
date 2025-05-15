@@ -16,7 +16,7 @@ public class Ex02 {
 		//읽기 스트림 준비
 		InputStream in = new FileInputStream("C:\\javaStudy\\MS949.txt");	//Main Stream  --> 2진수로 읽어옴
 		InputStreamReader isr = new InputStreamReader(in, "MS949");			//보조 스트림 --> 2진수를 MS949형식으로 읽어냄
-		BufferedReader br = new BufferedReader(isr);						//보조 스트림 --> MS949로 해석딘 글자를 버퍼에 담음
+		BufferedReader br = new BufferedReader(isr);						//보조스트림 --> MS949로해석된 글자를 버퍼에 담아서 처리함
 		
 		//쓰기 스트림 준비
 		OutputStream out = new FileOutputStream("C:\\javaStudy\\MS949-copy.txt");	//주스트림
