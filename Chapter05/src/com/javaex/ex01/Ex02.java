@@ -6,37 +6,35 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class Ex01 {
-	
+public class Ex02 {
+
 	public static void main(String[] args) throws IOException {
-	
-		// I/O 스트링 준비 : 빨대
+		
+		//스트림 준비
 		InputStream in = new FileInputStream("C:\\javaStudy\\img.jpg");
-		OutputStream out = new FileOutputStream("C:\\javaStudy\\byteimg.jpg");
+		OutputStream out = new FileOutputStream("C:\\javaStudy\\buffimg.jpg");
 		System.out.println("스트림 준비 완료");
 		
+		byte buff[] = new byte[1024];
 		
-		//repeat
+		System.out.println("복사 시작");
 		while(true) {
-			int data = in.read();
+			//int data = in.read();
+			int data = in.read(buff);
+			
 			System.out.println(data);
+			
 			if(data == -1) {
-				System.out.println("읽기 끝(-1)");
+				System.out.println("(-1) 복사 끝");
 				break;
 			}
-			out.write(data); 
+			//out.write(data);
+			out.write(buff);
 		}
 		
-		//쓰기
-		
-		
-		System.out.println("프로그램 종료");
-		
-		//I/O스트림 종료 : 빨대 회수
-		in.close();
+		//스트림 종료
 		out.close();
-		
+		in.close(); 
 	}
 
 }
-    
